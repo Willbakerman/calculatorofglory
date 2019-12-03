@@ -1,7 +1,7 @@
-#gems
-
+i#gems
+i
 puts("dicks")
-puts("guy is in the house") 
+
 #methods
 
 def get_number()
@@ -17,25 +17,26 @@ def check_input_is_number(input)
     return is_number
 end
 
+def abuse_and_exit()
+    puts("*************You trying to break me? Not in my house.")
+    exit
+end
+
 puts("What is the first number you would like to use?")
 aNumber = get_number()
 if check_input_is_number(aNumber)
-    puts("Nice - this is a digit")
     aNumber = aNumber.to_f
 else 
-    puts("*************You trying to break me? Shutter Down.")
-    exit
+    abuse_and_exit()
 end 
 
 puts("What is the second number you would like to use?")
 
 bNumber = get_number()
-if bNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
-    puts("Nice - this is a digit")
+if check_input_is_number(bNumber)
     bNumber = bNumber.to_f
 else 
-    puts("*************You trying to break me? Not in my house.")
-    exit
+    abuse_and_exit()
 end 
 
 
@@ -44,7 +45,6 @@ end
 # "3. " + aNumber.to_s + " / " + bNumber.to_s + "\n" + 
 # "4. " + aNumber.to_s + " x " + bNumber.to_s + "\n") 
 
-
 puts("PLEAAASSEE sir, choose a computation to complete \n
     1. #{aNumber} + #{bNumber} \n 
     2. #{aNumber} - #{bNumber} \n
@@ -52,7 +52,6 @@ puts("PLEAAASSEE sir, choose a computation to complete \n
     4. #{aNumber} x #{bNumber} \n") 
 
 userOption = gets.chomp
-
 
 case userOption 
 when "1"
@@ -77,14 +76,11 @@ puts(answer)
 
 #puts("This is " + aNumber.to_s + " + " + bNumber.to_s + " = " + cNumber.to_s)
 
-
 puts("And now time for a method yalll")
-
 
 def output_something(value)
     puts value 
   end
-
 
 def some_method(value='default', arr=[])
     puts value
