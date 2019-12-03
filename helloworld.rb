@@ -1,11 +1,25 @@
+#gems
+
 puts("dicks")
 
 #methods
-#gems
+
+def get_number()
+    return gets.chomp
+end
+
+def check_input_is_number(input)
+    is_number = false
+    if input =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
+        is_number = true
+    end
+    puts("This is a juicy number")
+    return is_number
+end
 
 puts("What is the first number you would like to use?")
-aNumber = gets.chomp
-if aNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
+aNumber = get_number()
+if check_input_is_number(aNumber)
     puts("Nice - this is a digit")
     aNumber = aNumber.to_f
 else 
@@ -15,7 +29,7 @@ end
 
 puts("What is the second number you would like to use?")
 
-bNumber = gets.chomp
+bNumber = get_number()
 if bNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     puts("Nice - this is a digit")
     bNumber = bNumber.to_f
