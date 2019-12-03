@@ -1,10 +1,13 @@
 puts("dicks")
 
+#methods
+#gems
+
 puts("What is the first number you would like to use?")
 aNumber = gets.chomp
-if aNumber !~ /\D/
+if aNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     puts("Nice - this is a digit")
-    aNumber = aNumber.to_i 
+    aNumber = aNumber.to_f
 else 
     puts("*************You trying to break me?")
     exit
@@ -13,9 +16,9 @@ end
 puts("What is the second number you would like to use?")
 
 bNumber = gets.chomp
-if bNumber !~ /\D/
+if bNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     puts("Nice - this is a digit")
-    bNumber = bNumber.to_i 
+    bNumber = bNumber.to_f
 else 
     puts("*************You trying to break me?")
     exit
@@ -50,15 +53,25 @@ end
 
 puts(answer)
 
-exit
-
-
-
 #Hello
 
+#puts("This is " + aNumber.to_s + " + " + bNumber.to_s + " = " + cNumber.to_s)
 
 
-puts("This is " + aNumber.to_s + " + " + bNumber.to_s + " = " + cNumber.to_s)
+puts("And now time for a method yalll")
+
+
+def output_something(value)
+    puts value 
+  end
+
+
+def some_method(value='default', arr=[])
+    puts value
+    puts arr.length
+  end
+  
+  some_method('Will put something here')
 
 
 # puts("CODER: so what next, do you ask? Mr cody code head")
