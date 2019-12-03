@@ -9,7 +9,7 @@ if aNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     puts("Nice - this is a digit")
     aNumber = aNumber.to_f
 else 
-    puts("*************You trying to break me?")
+    puts("*************You trying to break me? Shutter Down.")
     exit
 end 
 
@@ -20,16 +20,22 @@ if bNumber =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/
     puts("Nice - this is a digit")
     bNumber = bNumber.to_f
 else 
-    puts("*************You trying to break me?")
+    puts("*************You trying to break me? Not in my house.")
     exit
 end 
 
 
-puts("PLEAAASSEE sir, choose a computation to complete \n" +
-    "1. " + aNumber.to_s + " + " + bNumber.to_s + "\n" + 
-    "2. " + aNumber.to_s + " - " + bNumber.to_s + "\n" +
-    "3. " + aNumber.to_s + " / " + bNumber.to_s + "\n" + 
-    "4. " + aNumber.to_s + " x " + bNumber.to_s + "\n") 
+# "1. " + aNumber.to_s + " + " + bNumber.to_s + "\n" + 
+# "2. " + aNumber.to_s + " - " + bNumber.to_s + "\n" +
+# "3. " + aNumber.to_s + " / " + bNumber.to_s + "\n" + 
+# "4. " + aNumber.to_s + " x " + bNumber.to_s + "\n") 
+
+
+puts("PLEAAASSEE sir, choose a computation to complete \n
+    1. #{aNumber} + #{bNumber} \n 
+    2. #{aNumber} - #{bNumber} \n
+    3. #{aNumber} / #{bNumber} \n
+    4. #{aNumber} x #{bNumber} \n") 
 
 userOption = gets.chomp
 
