@@ -1,5 +1,5 @@
 puts("dicks")
-puts("guy is in the house")
+puts("guy is in the house") 
 #methods
 #gems
 
