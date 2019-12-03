@@ -1,7 +1,7 @@
 #gems
 
 puts("dicks")
-
+puts("guy is in the house") 
 #methods
 
 def get_number()
