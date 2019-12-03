@@ -1,5 +1,5 @@
-i#gems
-i
+#gems
+
 puts("dicks")
 
 #methods
