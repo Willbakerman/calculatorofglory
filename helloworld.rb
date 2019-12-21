@@ -3,8 +3,13 @@
 puts("dicks")
 
 #methods
+#while loop, create a condition that when met, keep the loop going, else end the loop. 
 
 def get_number()
+    return gets.chomp
+end
+
+def get_yes_no()
     return gets.chomp
 end
 
@@ -22,6 +27,15 @@ def abuse_and_exit()
     exit
 end
 
+# Ruby program to illustrate 'until' loop 
+  
+sessionValue = TRUE
+  
+# using until loop 
+# here do is optional 
+until sessionValue == FALSE do
+  
+
 puts("What is the first number you would like to use?")
 aNumber = get_number()
 if check_input_is_number(aNumber)
@@ -38,12 +52,6 @@ if check_input_is_number(bNumber)
 else 
     abuse_and_exit()
 end 
-
-
-# "1. " + aNumber.to_s + " + " + bNumber.to_s + "\n" + 
-# "2. " + aNumber.to_s + " - " + bNumber.to_s + "\n" +
-# "3. " + aNumber.to_s + " / " + bNumber.to_s + "\n" + 
-# "4. " + aNumber.to_s + " x " + bNumber.to_s + "\n") 
 
 puts("PLEAAASSEE sir, choose a computation to complete \n
     1. #{aNumber} + #{bNumber} \n 
@@ -69,34 +77,16 @@ when "4"
     puts("You have selected option 4")
     answer = aNumber * bNumber 
 end 
-
+puts("Your answer is:")
 puts(answer)
+puts("Would you like to do that again?")
 
-#Hello
+userYesno = get_yes_no()
 
-#puts("This is " + aNumber.to_s + " + " + bNumber.to_s + " = " + cNumber.to_s)
-
-puts("And now time for a method yalll")
-
-def output_something(value)
-    puts value 
-  end
-
-def some_method(value='default', arr=[])
-    puts value
-    puts arr.length
-  end
-  
-  some_method('Will put something here')
-
-
-# puts("CODER: so what next, do you ask? Mr cody code head")
-# puts("CODER: for my first trick")
-# puts("I shall make two numbers do multiply")
-# cNumber = 4
-# dNumber = 10
-# puts(cNumber * dNumber)
-# puts("and now a quick switcheroooo")
-# puts(cNumber + aNumber)
-
-
+if userYesno = "yes"
+   # sessionValue = TRUE
+else sessionValue = FALSE
+    puts("you put no")
+end 
+# here loop ends 
+end
