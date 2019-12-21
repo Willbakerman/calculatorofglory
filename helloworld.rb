@@ -27,14 +27,11 @@ def abuse_and_exit()
   exit
 end
 
-# Ruby program to illustrate 'until' loop
-session_value = TRUE
+def start_the_calculator()
+  puts("What the fuck would you like to compute?")
+end
 
-# using until loop
-# here do is optional
-until session_value == FALSE
-
-  puts('What is the first number you would like to use?')
+start_the_calculator()
 
   a_number = get_number()
 
@@ -85,10 +82,8 @@ until session_value == FALSE
   user_yesno = get_yes_no()
 
   if user_yesno == 'yes'
-    session_value = TRUE
+    start_the_calculator()
   else
-    session_value = FALSE
     puts('you put no')
   end
   # here loop ends
-end
