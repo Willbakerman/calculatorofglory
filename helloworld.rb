@@ -31,8 +31,6 @@ def start_the_calculator()
   puts("What the fuck would you like to compute?")
 end
 
-start_the_calculator()
-
   a_number = get_number()
 
   if check_input_is_number(a_number)
