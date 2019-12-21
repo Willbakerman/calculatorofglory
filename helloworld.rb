@@ -1,4 +1,4 @@
-#gems
+#gems t
 
 puts("dicks")
 
