@@ -20,12 +20,9 @@ def ask_for_number(first_or_second_input)
 end
 
 def calculate(a_number,b_number)
-  puts("What Calculation to use? [1,2,3,4]")
-  puts("1 = *")
-  puts("2 = /")
-  puts("3 = +")
-  puts("4 = -") 
+  puts("What Calculation to use? [1,2,3,4] \n1 = *\n2 = /\n3 = +\n4 = -\n")
   user_option = gets.chomp
+
   puts("You have selected: #{user_option}")
 
   calculation = nil 
@@ -33,17 +30,20 @@ def calculate(a_number,b_number)
   when '1'
     puts('You have selected option *')
     calculation = a_number * b_number
+    puts("We are going to do: #{a_number} * #{b_number}")
   when '2'
     puts('You have selected option /')
     calculation = a_number / b_number
+    puts("This is the maths we gonna do: #{a_number} / #{b_number}")
   when '3'
     puts('You have selected option +')
     calculation = a_number + b_number
+    puts("These numbers will magically do the following: #{a_number} + #{b_number}")
   when '4'
     puts('You have selected option -')
     calculation = a_number - b_number
+    puts("Are you sure you want to do this calculation: #{a_number} - #{b_number}")
   end
-  puts("We are going to #{a_number} #{user_option} #{b_number}")
   return calculation 
 end
 
