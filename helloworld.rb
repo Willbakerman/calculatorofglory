@@ -20,7 +20,11 @@ def ask_for_number(option)
 end
 
 def calculate(a_number,b_number)
-  puts("What Calculation to use? 1 = * 2 = / 3 = + 4 = -")
+  puts("What Calculation to use?")
+  puts("1 = *")
+  puts("2 = /")
+  puts("3 = +")
+  puts("4 = -") 
   user_option = gets.chomp
   puts("You have selected: #{user_option}")
 
