@@ -1,17 +1,50 @@
-# gems t
-
+# gems 
+#libaries 
+#put this shot in a loop so you can do it over and over again until you say the pass word?
 puts('dicks')
-
 # methods
-# while loop, create a condition that when met, keep the loop going, else end the loop. 
-
-def get_number()
-  return gets.chomp
+# while loop, create a condition that when met, keep the loop going, else end the loop. 8
+def welcome()
+  puts("WELCOME - to the Calculator of glory")
 end
 
-def get_yes_no()
-  return gets.chomp
+def ask_for_number(option)
+  puts("What is your #{option} number")
+  result = gets.chomp
+  if check_input_is_number(result)
+    result = result.to_f
+  else
+    abuse_and_exit(option)
+  end
+  return result
 end
+
+def calculate(a_number,b_number)
+  puts("What Calculation to use? 1 = * 2 = / 3 = + 4 = -")
+  user_option = gets.chomp
+  puts("You have selected: #{user_option}")
+
+  answer = nil 
+  case user_option
+  when '1'
+    puts('You have selected option *')
+    answer = a_number * b_number
+  when '2'
+    puts('You have selected option /')
+    answer = a_number / b_number
+  when '3'
+    puts('You have selected option +')
+    answer = a_number + b_number
+  when '4'
+    puts('You have selected option -')
+    answer = a_number - b_number
+  end
+  return answer
+end
+
+def show_answer(answer)
+  puts("#{answer}")
+end 
 
 def check_input_is_number(input)
   is_number = false
@@ -22,73 +55,47 @@ def check_input_is_number(input)
   return is_number
 end
 
-def abuse_and_exit()
+def abuse_and_exit(option)
   puts('*************You trying to break me? Not in my house.')
-  exit
+  ask_for_number(option)
 end
 
-# Ruby program to illustrate 'until' loop
-session_value = TRUE
-
-# using until loop
-# here do is optional
-until session_value == FALSE
-
-  puts('What is the first number you would like to use?')
-
-  a_number = get_number()
-
-  if check_input_is_number(a_number)
-    a_number = a_number.to_f
-  else
-    abuse_and_exit()
+def restart(result)
+  answer = gets.chomp
+  if answer == 'yes' 
+    puts("Would you like to use your #{result} in another sum?")
+    second_answer = gets.chomp
+    if second_answer == 'yes'
+      return result 
+    else 
+      return nil
+    end
+  else sessionValue = FALSE
+    puts("You put no! GOOOOODBYE!")
+    exit 
   end
-
-  puts('What is the second number you would like to use?')
-
-  b_number = get_number()
-  if check_input_is_number(b_number)
-    b_number = b_number.to_f
-  else
-    abuse_and_exit()
-  end
-
-  puts("PLEAAASSEE sir, choose a computation to complete \n
-    1. #{a_number} + #{b_number} \n
-    2. #{a_number} - #{b_number} \n
-    3. #{a_number} / #{b_number} \n
-    4. #{a_number} x #{b_number} \n")
-
-  user_option = gets.chomp
-
-  case user_option
-  when '1'
-    puts('You have selected option 1')
-    answer = a_number + b_number
-  when '2'
-    puts('You have selected option 2')
-    answer = a_number - b_number
-
-  when '3'
-    puts('You have selected option 3')
-    answer = a_number / b_number
-
-  when '4'
-    puts('You have selected option 4')
-    answer = a_number * b_number
-  end
-
-  puts('Your answer is:')
-  puts(answer)
-  puts('Would you like to do that again?')
-
-  user_yesno = get_yes_no()
-
-  if user_yesno == 'yes'
-    session_value = TRUE
-  else
-    session_value = FALSE
-    puts('you put no')
-  end
-  # here loop ends
 end
+
+welcome()
+
+sessionValue = TRUE 
+firstNumber = nil 
+secondNumber = nil
+result = nil
+
+until sessionValue == FALSE do
+
+  if firstNumber == nil 
+    firstNumber = ask_for_number("first")
+  end 
+
+   secondNumber = ask_for_number("second")
+   result = calculate(firstNumber,secondNumber)
+
+  # result = calculate(ask_for_first_number(), ask_for_second_number())
+
+    puts("Your answer is: #{result}")
+  ## puts(answer)
+    puts('Would you like to do that again?')
+    firstNumber = restart(result)
+end 
