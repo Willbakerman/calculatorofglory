@@ -8,19 +8,19 @@ def welcome()
   puts("WELCOME - to the Calculator of glory")
 end
 
-def ask_for_number(option)
-  puts("What is your #{option} number")
+def ask_for_number(first_or_second_input)
+  puts("What is your #{first_or_second_input} number")
   result = gets.chomp
   if check_input_is_number(result)
     result = result.to_f
   else
     abuse_and_exit(option)
   end
-  return result
+  return result 
 end
 
 def calculate(a_number,b_number)
-  puts("What Calculation to use?")
+  puts("What Calculation to use? [1,2,3,4]")
   puts("1 = *")
   puts("2 = /")
   puts("3 = +")
@@ -28,27 +28,24 @@ def calculate(a_number,b_number)
   user_option = gets.chomp
   puts("You have selected: #{user_option}")
 
-  answer = nil 
+  calculation = nil 
   case user_option
   when '1'
     puts('You have selected option *')
-    answer = a_number * b_number
+    calculation = a_number * b_number
   when '2'
     puts('You have selected option /')
-    answer = a_number / b_number
+    calculation = a_number / b_number
   when '3'
     puts('You have selected option +')
-    answer = a_number + b_number
+    calculation = a_number + b_number
   when '4'
     puts('You have selected option -')
-    answer = a_number - b_number
+    calculation = a_number - b_number
   end
-  return answer
+  puts("We are going to #{a_number} #{user_option} #{b_number}")
+  return calculation 
 end
-
-def show_answer(answer)
-  puts("#{answer}")
-end 
 
 def check_input_is_number(input)
   is_number = false
@@ -59,18 +56,18 @@ def check_input_is_number(input)
   return is_number
 end
 
-def abuse_and_exit(option)
+def abuse_and_exit(first_or_second_input)
   puts('*************You trying to break me? Not in my house.')
-  ask_for_number(option)
+  ask_for_number(first_or_second_input)
 end
 
-def restart(result)
+def restart(calculation)
   answer = gets.chomp
   if answer == 'yes' 
-    puts("Would you like to use your #{result} in another sum?")
+    puts("Would you like to use your #{calculation} in another sum? [yes/no]")
     second_answer = gets.chomp
     if second_answer == 'yes'
-      return result 
+      return calculation 
     else 
       return nil
     end
@@ -85,7 +82,7 @@ welcome()
 sessionValue = TRUE 
 firstNumber = nil 
 secondNumber = nil
-result = nil
+calculation = nil
 
 until sessionValue == FALSE do
 
@@ -94,12 +91,12 @@ until sessionValue == FALSE do
   end 
 
    secondNumber = ask_for_number("second")
-   result = calculate(firstNumber,secondNumber)
+   calculation = calculate(firstNumber,secondNumber)
 
   # result = calculate(ask_for_first_number(), ask_for_second_number())
 
-    puts("Your answer is: #{result}")
+    puts("Your answer is: #{calculation}")
   ## puts(answer)
-    puts('Would you like to do that again?')
-    firstNumber = restart(result)
+    puts('Would you like to do that again? [yes/no]')
+    firstNumber = restart(calculation)
 end 
