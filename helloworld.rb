@@ -14,7 +14,7 @@ def ask_for_number(first_or_second_input)
   if check_input_is_number(result)
     result = result.to_f
   else
-    abuse_and_exit(option)
+    abuse_and_exit(first_or_second_input)
   end
   return result 
 end
@@ -61,6 +61,10 @@ def abuse_and_exit(first_or_second_input)
   ask_for_number(first_or_second_input)
 end
 
+def random_number()
+  return rand 100 > 41
+end
+
 def restart(calculation)
   answer = gets.chomp
   if answer == 'yes' 
@@ -68,15 +72,15 @@ def restart(calculation)
     second_answer = gets.chomp
     if second_answer == 'yes'
       return calculation 
-    else 
-      return nil
+    elsif second_answer == 'maybe'
+      return random_number()
+    elsif second_answer == 'no'
+      sessionValue = FALSE
+      puts("You put no! GOOOOODBYE! (session is now false)")
+      #exit 
     end
-  else sessionValue = FALSE
-    puts("You put no! GOOOOODBYE!")
-    exit 
   end
 end
-
 welcome()
 
 sessionValue = TRUE 
@@ -97,6 +101,6 @@ until sessionValue == FALSE do
 
     puts("Your answer is: #{calculation}")
   ## puts(answer)
-    puts('Would you like to do that again? [yes/no]')
+    puts('Would continue on your journey? [yes/no/maybe]')
     firstNumber = restart(calculation)
 end 
