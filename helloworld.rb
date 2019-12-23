@@ -61,20 +61,17 @@ def abuse_and_exit(first_or_second_input)
   ask_for_number(first_or_second_input)
 end
 
-def random_number()
-  return rand 100 > 41
-end
-
 def restart(calculation)
   answer = gets.chomp
   if answer == 'yes' 
-    puts("Would you like to use your #{calculation} in another sum? [yes/no]")
+    puts("Would you like to use your #{calculation} in another sum? [yes/no/maybe]")
     second_answer = gets.chomp
     if second_answer == 'yes'
       return calculation 
     elsif second_answer == 'maybe'
-      return random_number()
-    elsif second_answer == 'no'
+      puts("You have been assigned : #{rand}")
+      return rand
+    else second_answer == 'no'
       sessionValue = FALSE
       puts("You put no! GOOOOODBYE! (session is now false)")
       #exit 
@@ -101,6 +98,6 @@ until sessionValue == FALSE do
 
     puts("Your answer is: #{calculation}")
   ## puts(answer)
-    puts('Would continue on your journey? [yes/no/maybe]')
+    puts('Would continue on your journey? [yes/no]')
     firstNumber = restart(calculation)
 end 
