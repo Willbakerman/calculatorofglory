@@ -9,7 +9,7 @@ def welcome()
   puts("***RULES***")
   puts("Only the following commands can be used:")
   puts("yes / no / maybe")
-  puts("This is a fun sassy calculator - ENJOY")
+  puts("This is a fun and sassy calculator - ENJOY")
 end
 
 def ask_for_number(first_or_second_input)
@@ -62,7 +62,7 @@ end
 
 def abuse_and_exit(first_or_second_input)
   puts('*************You trying to break me? Not in my house.')
-  ask_for_number(first_or_second_input)
+  exit
 end
 
 def restart(calculation)
@@ -112,11 +112,8 @@ until sessionValue == FALSE do
     puts('Would continue on your journey? [yes/no]')
     firstNumber = restart(calculation)
 
-  start_game(second_answer)
+  start_game(secondNumber)
   puts("So you want to play the game?")
-
-
-
 
 #end of the loop 
 end 
