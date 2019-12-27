@@ -6,6 +6,10 @@ puts('dicks')
 # while loop, create a condition that when met, keep the loop going, else end the loop. 8
 def welcome()
   puts("WELCOME - to the Calculator of glory")
+  puts("***RULES***")
+  puts("Only the following commands can be used:")
+  puts("yes / no / maybe")
+  puts("This is a fun sassy calculator - ENJOY")
 end
 
 def ask_for_number(first_or_second_input)
@@ -71,6 +75,8 @@ def restart(calculation)
     elsif second_answer == 'maybe'
       puts("You have been assigned : #{rand}")
       return rand
+    elsif second_answer == "playthegame"
+      start_game(second_answer)
     else second_answer == 'no'
       sessionValue = FALSE
       puts("You put no! GOOOOODBYE! (session is now false)")
@@ -78,6 +84,11 @@ def restart(calculation)
     end
   end
 end
+
+def start_game(second_answer)
+  puts("Time to PLAY the game")
+end 
+
 welcome()
 
 sessionValue = TRUE 
@@ -100,4 +111,13 @@ until sessionValue == FALSE do
   ## puts(answer)
     puts('Would continue on your journey? [yes/no]')
     firstNumber = restart(calculation)
+
+  start_game(second_answer)
+  puts("So you want to play the game?")
+
+
+
+
+#end of the loop 
 end 
+
